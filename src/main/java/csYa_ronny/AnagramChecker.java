@@ -2,8 +2,16 @@ package csYa_ronny;
 
 public class AnagramChecker {
     public static boolean areAnagrams(String str1, String str2) {
-        // TODO: Implement the logic to check if str1 and str2 are anagrams
-        return false;  // Return false by default
+        if (str1.length() != str2.length())
+            return false;
+        for (int i = 0; i < str1.length(); i++){
+            char check = str1.charAt(i);
+            if (str2.indexOf(check) == -1)
+                return false;
+            else
+                str2 = str2.substring(0,str2.indexOf(check)) + str2.substring(str2.indexOf(check)+1);
+        }
+        return true;
     }
 
     public static void main(String[] args) {
